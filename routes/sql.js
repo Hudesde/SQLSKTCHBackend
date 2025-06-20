@@ -87,12 +87,12 @@ Responde SOLO con el código SQL, sin explicaciones adicionales.
   }
 });
 
-// Validar SQL (opcional)
-router.post('/validate', authMiddleware, async (req, res) => {
+// Ruta para validar SQL (temporalmente sin autenticación)
+router.post('/validate', async (req, res) => {
   try {
-    const { sqlCode } = req.body;
+    const { sql } = req.body;
 
-    if (!sqlCode) {
+    if (!sql) {
       return res.status(400).json({ error: 'Código SQL requerido' });
     }
 
